@@ -1,0 +1,110 @@
+@import 'tailwindcss';
+
+@theme {
+  /* Design tokens — exposed as Tailwind utilities (e.g. text-ink, bg-cream) */
+  --color-ink: #2b2b2b;
+  --color-ink-soft: rgba(43, 43, 43, 0.66);
+  --color-ink-muted: rgba(43, 43, 43, 0.44);
+  --color-ink-faint: rgba(43, 43, 43, 0.86);
+  --color-gold: #a8834a;
+  --color-gold-soft: rgba(168, 131, 74, 0.33);
+  --color-gold-line: rgba(168, 131, 74, 0.47);
+  --color-cream: #f2efec;
+  --color-cream-deep: #f4ece3;
+  --color-cream-soft: #fcfaf8;
+  --color-dark: #17130f;
+  --color-nav: #f7f7f7;
+  --color-footer-ink: #283646;
+  --color-ink-deep: #181510;
+  --color-gold-deep: #af853f;
+  --color-clay: #4d443c;
+  --color-bronze: #82571f;
+  --color-sand: #eae3da;
+  --color-sand-line: #e2d5c5;
+  --color-muted-warm: #84796e;
+
+  --font-sans: 'Outfit', system-ui, sans-serif;
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+
+  /* Motion */
+  --animate-twinkle: twinkle 3.2s ease-in-out infinite;
+  --animate-rise: rise 0.9s ease both;
+
+  @keyframes twinkle {
+    0%,
+    100% {
+      opacity: 0.35;
+      transform: scale(0.92) rotate(0deg);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.08) rotate(8deg);
+    }
+  }
+
+  @keyframes rise {
+    from {
+      opacity: 0;
+      transform: translateY(18px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+@layer base {
+  :root {
+    --max: 1512px;
+    --pad: clamp(1.25rem, 5vw, 5rem);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    /* keep anchor targets clear of the floating sticky nav */
+    scroll-padding-top: 7rem;
+  }
+
+  @media (max-width: 780px) {
+    html {
+      scroll-padding-top: 8.5rem;
+    }
+  }
+
+  body {
+    margin: 0;
+    font-family: var(--font-sans);
+    color: var(--color-ink);
+    background: var(--color-white);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  button {
+    font: inherit;
+    cursor: pointer;
+    border: none;
+    background: none;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  #root {
+    min-height: 100vh;
+  }
+}
